@@ -1,12 +1,7 @@
 import React from "react";
+import { CardProps } from "../../interfaces";
 import CardItem from "../CardItem";
 import "./Card.css";
-
-interface CardProps {
-  title: String;
-  data: Array<string>;
-  type: number;
-}
 
 const Card: React.FC<CardProps> = ({ title, data, type }) => {
   return (

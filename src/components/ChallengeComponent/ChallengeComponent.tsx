@@ -3,12 +3,6 @@ import { useTask } from "../../context/TaskContext";
 import Card from "../Card";
 import "./ChallengeComponent.css";
 
-export interface TaskInterface {
-  todo: Array<string>;
-  progress: Array<string>;
-  done: Array<string>;
-}
-
 const ChallengeComponent: React.FC = () => {
   const { taskState, setTaskState } = useTask();
   const [taskInput, setTaskInput] = React.useState<string>("");

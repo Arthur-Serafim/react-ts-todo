@@ -1,11 +1,7 @@
 import React from "react";
 import { useTask } from "../../context/TaskContext";
+import { CardItemProps } from "../../interfaces";
 import "./CardItem.css";
-
-interface CardItemProps {
-  title: string;
-  type: number;
-}
 
 const CardItem: React.FC<CardItemProps> = ({ title, type }) => {
   const { taskState, setTaskState } = useTask();

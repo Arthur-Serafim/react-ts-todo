@@ -1,9 +1,9 @@
 import { useContext, createContext, useState } from "react";
-import { TaskInterface } from "../components/ChallengeComponent/ChallengeComponent";
+import { TaskInterface } from "../interfaces";
 
 export const TaskContext = createContext<any>({});
 
-export const InitialState: TaskInterface = {
+const InitialState: TaskInterface = {
   todo: [],
   progress: [],
   done: [],
