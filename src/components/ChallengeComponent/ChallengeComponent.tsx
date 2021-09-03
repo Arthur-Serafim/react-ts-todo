@@ -1,21 +1,16 @@
 import React from "react";
+import { useTask } from "../../context/TaskContext";
 import Card from "../Card";
 import "./ChallengeComponent.css";
 
-interface TaskInterface {
+export interface TaskInterface {
   todo: Array<string>;
   progress: Array<string>;
   done: Array<string>;
 }
 
-const InitialState: TaskInterface = {
-  todo: [],
-  progress: [],
-  done: [],
-};
-
 const ChallengeComponent: React.FC = () => {
-  const [taskState, setTaskState] = React.useState<TaskInterface>(InitialState);
+  const { taskState, setTaskState } = useTask();
   const [taskInput, setTaskInput] = React.useState<string>("");
 
   function handleTaskCreation(e: any) {
@@ -28,9 +23,9 @@ const ChallengeComponent: React.FC = () => {
   return (
     <div className="challenge-component-container">
       <div className="challenge-component-grid">
-        <Card title="To Do" data={taskState.todo} />
-        <Card title="In Progress" data={taskState.progress} />
-        <Card title="Done" data={taskState.done} />
+        <Card title="To Do" data={taskState.todo} type={0} />
+        <Card title="In Progress" data={taskState.progress} type={1} />
+        <Card title="Done" data={taskState.done} type={2} />
       </div>
       <form
         onSubmit={(e: any) => handleTaskCreation(e)}

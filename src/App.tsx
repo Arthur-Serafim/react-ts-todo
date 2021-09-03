@@ -1,6 +1,7 @@
 import React from "react";
 import ChallengeComponent from "./components/ChallengeComponent";
 import "./App.css";
+import TaskProvider from "./context/TaskContext";
 
 function App() {
   return (
@@ -45,7 +46,9 @@ function App() {
           borderRadius: 40,
         }}
       >
-        <ChallengeComponent />
+        <TaskProvider>
+          <ChallengeComponent />
+        </TaskProvider>
       </main>
     </div>
   );
