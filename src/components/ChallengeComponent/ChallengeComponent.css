@@ -1,0 +1,50 @@
+.challenge-component-container {
+  box-sizing: border-box;
+  padding: 45px;
+}
+
+.challenge-component-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 25px;
+}
+
+.challenge-component-form {
+  margin-top: 33px;
+  display: flex;
+  align-items: center;
+}
+
+.challenge-component-input {
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  padding: 0 35px;
+  height: 60px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 26px;
+
+  color: #757575;
+  margin-right: 32px;
+}
+
+.challenge-component-button {
+  height: 60px;
+  padding: 0 35px;
+  background: #0066ff;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 35px;
+  transition: all 0.3s;
+}
+
+.challenge-component-button:hover {
+  opacity: 0.75;
+}
