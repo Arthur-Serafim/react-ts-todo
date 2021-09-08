@@ -1,5 +1,6 @@
-import { useContext, createContext, useState } from "react";
+import { useEffect, useContext, createContext, useState } from "react";
 import { TaskInterface } from "../interfaces";
+import { getClosedIssues, getOpenIssues } from "../services/state.service";
 
 export const TaskContext = createContext<any>({});
 
@@ -11,6 +12,31 @@ const InitialState: TaskInterface = {
 
 export default function TaskProvider({ children }: any): any {
   const [taskState, setTaskState] = useState<TaskInterface>(InitialState);
+
+  useEffect(() => {
+    (async () => {
+      await populateOpenIssues();
+    })();
+  }, []);
+
+  async function populateOpenIssues() {
+    const openData = await getOpenIssues();
+    const closedData = await getClosedIssues();
+
+    const openAccumulator: Array<string> = openData.map((item: any) => {
+      return item.title;
+    });
+
+    const closedAccumulator: Array<string> = closedData.map((item: any) => {
+      return item.title;
+    });
+
+    setTaskState({
+      ...taskState,
+      todo: [...taskState.todo, ...openAccumulator],
+      done: [...taskState.done, ...closedAccumulator],
+    });
+  }
 
   return (
     <TaskContext.Provider value={{ taskState, setTaskState }}>
